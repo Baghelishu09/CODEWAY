@@ -8,17 +8,24 @@ win.resizable(True,True)
 
 # functionlity and logic
 
-global output_val
-    
+
 def click(event):
+    global output_val
     text=event.widget.cget("text")
-    if(text=="C"):
-        pass
-    elif(text=="="):
-        pass
-    else:
-        output_val.get(output_val.set+text)
+    if(text=="="):
+        if output_val.get().isdigit():
+            value=float(output_val.get())
+        else:
+            value=eval(output_val.get())
+        output_val.set(value)
         enty.update()
+    elif(text=="C"):
+        output_val.set("")
+        enty.update()
+    else:
+        output_val.set(output_val.get()+text)
+        enty.update()
+    
 
 
 
