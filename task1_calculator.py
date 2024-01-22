@@ -3,7 +3,7 @@ from tkinter import *
 win = Tk()
 win.title("Calculator")
 win.geometry("400x480+50+100")
-win.resizable(True,True)
+win.resizable(False,False)
 
 
 # functionlity and logic
@@ -16,7 +16,10 @@ def click(event):
         if output_val.get().isdigit():
             value=float(output_val.get())
         else:
-            value=eval(output_val.get())
+            try:
+                value=eval(output_val.get())
+            except Exception as e:
+                output_val.set("Error")
         output_val.set(value)
         enty.update()
     elif(text=="C"):
