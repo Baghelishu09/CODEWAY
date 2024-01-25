@@ -9,15 +9,39 @@ win.resizable(False,False)
 
 #functionality
 
-inputval=IntVar()
+
+
+inputval=StringVar()
 outputval=StringVar()
+outputval.set("")
+
+s1=string.ascii_uppercase
+s2=string.ascii_lowercase
+s3=string.digits
+s4=string.punctuation
+
+s=[]
+s.extend(s1)
+s.extend(s2)
+s.extend(s3)
+s.extend(s4)
 
 def reset(event):
     inputval.set("")
+    outputval.set("")
 
 def generate(event):
-    outputval=inputval.set(inputval.get)
-        
+    len=int(inputval.get())
+    if len<7 or len>15:
+        raise ValueError("Password length is not in range")
+    else:
+        try:
+            random.shuffle(s)
+            outputval.set("".join(s[0:len]))
+        except Exception as e:
+            outputval.set("Error occured due to "+e)
+    output_field.update()
+
 
 #gui
 
