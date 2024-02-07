@@ -28,7 +28,9 @@ def updateitem(event):
     inputfield.update()
 
 def deleteitem(event):
-    lbx.delete(ACTIVE)
+    delete_item=lbx.curselection()
+    if delete_item:
+        lbx.delete(ACTIVE)
     inputvar.set("")
     inputfield.update()
 
