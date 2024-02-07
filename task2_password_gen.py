@@ -7,6 +7,9 @@ win.title("Password Generator")
 win.geometry("450x350+0+0")
 win.resizable(False,False)
 
+ico=PhotoImage(file = 'password-512.png')
+win.iconphoto(False,ico)
+
 #functionality
 
 
