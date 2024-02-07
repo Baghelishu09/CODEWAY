@@ -5,6 +5,9 @@ win.title("Calculator")
 win.geometry("400x480+50+100")
 win.resizable(False,False)
 
+ico=PhotoImage(file='calculator.png')
+win.iconphoto(False,ico)
+
 
 # functionlity and logic
 
