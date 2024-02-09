@@ -5,6 +5,9 @@ import requests
 def data(event):
     if(city_name.get()):
         city=city_name.get()
+
+
+        
         api="2f44068457b17f0f95e722a946f8e1b1"
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric"
         respose=requests.get(url).json()
