@@ -7,11 +7,11 @@ def data(event):
         city=city_name.get()
         api="2f44068457b17f0f95e722a946f8e1b1"
         url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api}&units=metric"
-        respose=requests.get(url).json()
-        longitute=respose["coord"]["lon"]
-        latitude=respose["coord"]["lat"]
+        response=requests.get(url).json()
+        longitute=response["coord"]["lon"]
+        latitude=response["coord"]["lat"]
         url2=f"https://timeapi.io/api/Time/current/coordinate?latitude={latitude}&longitude={longitute}"
-        respose2=requests.get(url2).json()
+        response2=requests.get(url2).json()
         weather_lbl=Label(win,text="Weather",font=("times new roman",14,"bold"),
                           fg="brown",bg="light grey")
         weather_lbl.place(x=50,y=180)
@@ -36,11 +36,11 @@ def data(event):
         pressure_out_res=StringVar()
         time_out_res=StringVar()
 
-        weather_out_res.set(respose["weather"][0]["main"])
-        temp_out_res.set(respose["main"]["temp"])
-        pressure_out_res.set(respose["main"]["pressure"])
-        time_out_res.set(respose2["time"])
-        humidity_out_res.set(respose["main"]["humidity"])
+        weather_out_res.set(response["weather"][0]["main"])
+        temp_out_res.set(response["main"]["temp"])
+        pressure_out_res.set(response["main"]["pressure"])
+        time_out_res.set(response2["time"])
+        humidity_out_res.set(response["main"]["humidity"])
 
         weather_out=Entry(win,textvariable=weather_out_res,font=("times new roman",12,"italic"),
                           fg="brown",bg="light grey",relief=FLAT,borderwidth=1,state="readonly")
